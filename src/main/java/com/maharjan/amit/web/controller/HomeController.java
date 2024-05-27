@@ -1,5 +1,7 @@
 package com.maharjan.amit.web.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,5 +18,13 @@ public class HomeController {
     @ResponseBody
     public String secure(){
         return "securePage";
+    }
+
+    @RequestMapping("/extraHome")
+    public String extraHome(HttpServletRequest request){
+        String name = request.getParameter("name");
+        HttpSession session = request.getSession();
+        session.setAttribute("name", name);
+        return "homePage";
     }
 }

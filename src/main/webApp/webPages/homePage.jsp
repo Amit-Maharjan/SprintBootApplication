@@ -6,5 +6,6 @@
 </head>
 <body>
 Home Page
+${name}
 </body>
 </html>
