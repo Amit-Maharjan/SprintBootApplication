@@ -18,7 +18,7 @@ public class RestController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/rest/user/{id}")
+    @GetMapping(path = "/rest/user/{id}", produces = {"application/xml"})
     public User getUser(@PathVariable int id){
         return userService.getUserById(id);
     }
