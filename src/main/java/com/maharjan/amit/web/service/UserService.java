@@ -5,6 +5,8 @@ import com.maharjan.amit.web.dao.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -30,5 +32,13 @@ public class UserService {
         System.out.println(userRepo.findAllByPasswordAndSortedByName("password"));
 
         return result;
+    }
+
+    public List<User> getAllUsers(){
+        return userRepo.findAll();
+    }
+
+    public User getUserById(int userId){
+        return userRepo.findById(userId).orElse(null);
     }
 }
