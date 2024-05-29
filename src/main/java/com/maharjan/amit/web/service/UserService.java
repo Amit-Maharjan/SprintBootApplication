@@ -19,6 +19,14 @@ public class UserService {
         User user = userRepo.findById(101).orElse(new User());
         String result = user.toString();
 
+        System.out.println(userRepo.findAll());
+
+        System.out.println(userRepo.findByPassword("password"));
+
+        System.out.println(userRepo.findByUserIdGreaterThan(102));
+
+        System.out.println(userRepo.findAllByPasswordAndSortedByName("password"));
+
         return result;
     }
 }
