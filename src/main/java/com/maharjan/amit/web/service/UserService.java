@@ -11,6 +11,8 @@ public class UserService {
     UserRepo userRepo;
 
     public void saveUser(User user){
+        Integer userId = userRepo.findMaxId();
+        user.setUserId(++userId);
         userRepo.save(user);
         System.out.println("User saved");
     }

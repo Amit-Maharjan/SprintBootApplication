@@ -13,4 +13,7 @@ public interface UserRepo extends CrudRepository<User, Integer> {
 
     @Query("from User where password=?1 order by name")
     List<User> findAllByPasswordAndSortedByName(String password);
+
+    @Query("select max(userId) from User")
+    Integer findMaxId();
 }
