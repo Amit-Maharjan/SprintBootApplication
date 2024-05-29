@@ -41,4 +41,13 @@ public class UserService {
     public User getUserById(int userId){
         return userRepo.findById(userId).orElse(null);
     }
+
+    public void deleteUserById(Integer userId){
+        User user = getUserById(userId);
+        userRepo.delete(user);
+    }
+
+    public void updateUser(User user){
+        userRepo.save(user);
+    }
 }

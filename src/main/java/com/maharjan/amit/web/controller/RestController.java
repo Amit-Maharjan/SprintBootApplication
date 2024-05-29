@@ -27,4 +27,16 @@ public class RestController {
         userService.saveUser(user);
         return user;
     }
+
+    @DeleteMapping("/rest/user/{id}")
+    public String deleteUser(@PathVariable int id){
+        userService.deleteUserById(id);
+        return "Success-Deleted";
+    }
+
+    @PutMapping(path = "/rest/user", consumes = {"application/json"})
+    public User saveOrUpdateUser(@RequestBody User user){
+        userService.updateUser(user);
+        return user;
+    }
 }
